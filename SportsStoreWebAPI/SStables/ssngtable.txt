@@ -1,0 +1,146 @@
+--Create Database SportsStoreNGDB
+--Use SportsStoreNGDB
+--Drop Database SportsStoreNGDB
+
+--Drop Table Products
+--Drop Table Orders
+--Drop Table OrderDetails
+--Drop Table MUsers
+
+Create Table Products
+(
+	ProductID int identity,
+	ProductName nvarchar(100),
+	Description nvarchar(500),
+	Price decimal(16,2),
+	Category nvarchar(100),
+	constraint Products_PK_ProductID Primary Key(ProductID)
+)
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Kayak', 'A boat for one person', 275.00, 'Watersports')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Lifejacket', 'Protective and fashionable', 48.95, 'Watersports')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Soccer ball', 'FIFA-approved size and weight', 19.50, 'Soccer')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Spalding ball', 'NBA official Basketball', 160.50, 'Basketball')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Corner flags', 'Give your playing field that professional touch', 34.95, 'Soccer')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Stadium', 'Flat-packed 35,000-seat stadium', 79500.00, 'Soccer')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Thinking cap', 'Improve your brain efficiency by 75%', 16.00, 'Chess')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Unsteady Chair', 'Secretly give your opponent a disadvantage', 29.95, 'Chess')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Ring Nets', 'NBA size ring nets', 60.00, 'Basketball')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Human Chess', 'A fun game for the whole family', 75.00, 'Chess')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Bling-bling King', 'Gold-plated, diamond-studded King', 1200.00, 'Chess')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Dark Night', 'Titanium-plated Knight', 800.00, 'Chess')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Shoe', 'Studded shoes', 950.00, 'Soccer')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Jersey', 'Air Jersey', 1200.00, 'Soccer')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Scooter', 'A water bike for one or two people', 4275.00, 'Watersports')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Fox 40 Whistle', 'NBA Referees Whistle', 160, 'Basketball')
+go
+insert into Products(ProductName, Description, Price, Category)
+values('Surfboard', 'Surfboard for surfing on water', 495.00, 'Watersports')
+go
+
+create table Orders(
+	OrderID int identity,
+	Name nvarchar(100),
+	City nvarchar(100),
+	State nvarchar(100),
+	Zip nvarchar(100),
+	Country nvarchar(100),
+	Giftwrap nvarchar(5),
+	constraint Orders_PK_OrderID Primary Key(OrderID)
+)
+go
+insert into Orders(Name, City, State, Zip, Country, Giftwrap)
+values('Mowgli', 'Mumbai', 'Maharashatra', '400022', 'India', 'false');
+go
+insert into Orders(Name, City, State, Zip, Country, Giftwrap)
+values('Baloo', 'Mumbai', 'Maharashatra', '400019', 'India', 'false');
+go
+insert into Orders(Name, City, State, Zip, Country, Giftwrap)
+values('Bagheera', 'Mumbai', 'Maharashatra', '400020', 'India', 'false');
+go
+
+Create table OrderDetails
+(
+	OrderID int,
+	ProductID int,
+	ProductName nvarchar(100),
+	Price decimal(16,2),
+	Count int,
+	constraint OrderDetails_PK_OrderProductID Primary Key(OrderID, ProductID),
+	constraint OrderDetails_FK_OrderID foreign key(OrderID) references Orders(OrderID)
+)
+go
+insert into OrderDetails(OrderID, ProductID, ProductName, Price, Count)
+values(1, 1, 'Kayak', 275.00, 1);
+go
+insert into OrderDetails(OrderID, ProductID, ProductName, Price, Count)
+values(1, 4, 'Spalding ball', 160.50, 1);
+go
+insert into OrderDetails(OrderID, ProductID, ProductName, Price, Count)
+values(1, 13, 'Shoe', 950.00, 1);
+go
+
+Create table MUsers
+(
+	UserID int identity,
+	UserName nvarchar(15),
+	Password nvarchar(15),
+	Constraint MUsers_PK_UserID Primary Key(UserID)
+)
+go
+insert into MUsers(UserName, Password)
+ values('admin', 'pass@word1')
+go
+
+Select * from Orders
+Select * from Products
+Select * from OrderDetails
+Select * from MUsers
+
+go
+--Drop Table Products
+--Drop Table Orders
+--Drop Table OrderDetails
+--Drop Table MUsers
+
+
+
+--update Products 
+--set ProductName='Kayak', Description='A boat for one person', Price=275.00, Category='Watersports'
+--where ProductID = 1
+
+
+--update Products 
+--set ProductName='Surfboard', Description='Surfboard for surfing on water', Price=495.00, Category='Watersports'
+--where ProductID = 17

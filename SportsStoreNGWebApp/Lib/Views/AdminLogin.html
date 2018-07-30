@@ -1,0 +1,33 @@
+﻿<div class="row container-fluid">
+    <div class="col-sm-6">
+        <div class="card" ng-controller="authController">
+            <div class="row container-fluid">
+                <div>
+                    <div class="alert alert-info" ng-hide="authenticationError">
+                        Enter the username and password and click login to authenticate
+                    </div>
+                    <div class="alert alert-info" ng-hide="authenticationError">
+                       Authentication failed({{authenticationError.status}}).Try again.
+                    </div>
+                </div>
+            </div>
+            <div class="row container-fluid">
+                <div class="card">
+                    <form name="authForm" novalidate>
+                        <div class="form-group">
+                            <label>UserName</label>
+                            <input name="userName" class="form-control" ng-model="UserName" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input name="password" class="form-control" ng-model="Password" required />
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-primary" ng-click="authenticate(Username,Password)" ng-disabled="authForm.$invalid">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

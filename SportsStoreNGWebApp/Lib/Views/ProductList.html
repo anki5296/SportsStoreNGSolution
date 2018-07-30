@@ -1,0 +1,30 @@
+﻿<div class="dataPlacement row container-fluid" ng-controller="productListController">
+    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 ">
+        <a class="btn btn-block btn-outline-primary" ng-click="selectCategory()">Home</a>
+        <a class="btn btn-block btn-outline-primary" ng-repeat="item in productsData.products|orderBy:'Category'|unique:'Category'" ng-click="selectCategory(item)" ng-class="getCategoryClass(item)">
+            {{item}}
+        </a>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+        <div class="card" ng-repeat="item in productsData.products|filter:categoryFilterFN|range:selectedPage:pageSize">
+            <h4 class="m-1 card-header">
+                <strong>{{item.ProductName}}</strong>
+                <span class="float-right">{{item.Price|currency:"$":2}}</span>
+            </h4>
+            <div class="card-body">
+                <button class="btn btn-sm btn-outline-info" style="position:relative;float:right"ng-click="addProductToCart(item)">Add to Cart</button>
+                <span class="lead m-1">{{item.Description}}</span>
+            </div>
+            
+        </div>
+        <!-- Paging -->
+        <div class="float-right btn-group-sm">
+            <a ng-repeat="page in productsData.products|filter:categoryFilterFN|pageCount:pageSize"
+               class="btn btn-sm btn-outline-info"
+               ng-class="getCategoryClass($index+1)"
+               ng-click="selectPage($index+1)">
+                {{$index+1}}
+            </a>
+        </div>
+    </div>
+</div>

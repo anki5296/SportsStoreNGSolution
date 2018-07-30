@@ -1,0 +1,14 @@
+SportsStoreWebAPI
+
+
+
+SportsStoreNGWebApp
+Packages
+1.Install-Package AngularJS
+2.Install-Package AngularJS.Intellisense
+3.Install-Package Bootstrap(Copy the CSS and put it into content folder)
+Folder Structure
+	Content for Styles
+	Scripts for all Angular,jQuery and JS files
+	Lib
+	Controllers,Data,Filters,Modules,Services

@@ -1,0 +1,67 @@
+﻿<style>
+    .ng-invalid {
+        background-color: lightpink;
+    }
+
+    .ng-valid {
+        background-color: lightgreen;
+    }
+
+    .span-error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<div class="container-fluid">
+    <h2>Check out now</h2>
+    <p>Please enter your details,and we'll ship your goods right away!!!</p>
+    <form name="shippingForm" novalidate>
+        <div class="card bg-light">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Ship To</h3>
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input name="name" class="form-control" ng-model="productsData.shipping.name"required />
+                        <span class="error" ng-show="shippingForm.name.$error.required">Please enter a name</span>
+                    </div>
+                    <h3>Options</h3>
+                    <div class="form-check">
+                        <label>
+                            <input name="giftwrap" type="checkbox" ng-model="productsData.shipping.giftwrap" />
+                            Gift wrap these item(s)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <h3>Address</h3>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input name="city" class="form-control" required ng-model="productsData.shipping.city" />
+                            <span class="error" ng-show="shippingForm.city.$error.required">Please enter a city</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Zip</label>
+                            <input name="zip" class="form-control" required ng-model="productsData.shipping.zip" />
+                            <span class="error" ng-show="shippingForm.zip.$error.required">Please enter a zip code</span>
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input name="state" class="form-control" required ng-model="productsData.shipping.state" />
+                            <span class="error" ng-show="shippingForm.state.$error.required">Please enter a state</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input name="country" class="form-control" required ng-model="productsData.shipping.country" />
+                            <span class="error" ng-show="shippingForm.country.$error.required">Please enter a country</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button ng-disabled="shippingForm.$invalid" ng-click="sendOrder(productsData.shipping)">Complete Order</button>
+            </div>
+        </div>
+    </form>
+</div>
