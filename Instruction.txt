@@ -12,5 +12,5 @@ Folder Structure
 	Scripts for all Angular,jQuery and JS files
 	Lib
 	Controllers,Data,Filters,Modules,Services
-	Vendor code(Xfm)
-	Vendor Code(Xfm)
+	
+	Vendor Code (Xfm) 
