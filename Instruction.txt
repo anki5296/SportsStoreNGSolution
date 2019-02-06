@@ -13,4 +13,4 @@ Folder Structure
 	Lib
 	Controllers,Data,Filters,Modules,Services
 	Vendor code(Xfm)
-	Vendor Code (Xfm) 
+	Vendor Code (Xfm)
